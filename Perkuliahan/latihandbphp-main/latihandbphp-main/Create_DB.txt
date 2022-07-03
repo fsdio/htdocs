@@ -1,0 +1,12 @@
+CREATE TABLE mahasiswa (
+	nim INT NOT NULL,
+	name VARCHAR(50) NOT NULL DEFAULT '',
+	PRIMARY KEY (`nim`)
+)
+
+CREATE TABLE class (
+	nim INT NOT NULL,
+	class VARCHAR(50) NULL DEFAULT NULL,
+	CONSTRAINT FK_mahasiswa FOREIGN KEY (nim) REFERENCES mahasiswa (nim)
+)
+
