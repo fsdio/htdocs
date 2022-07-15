@@ -1,25 +1,25 @@
 <?php 
 
   // SAAT DI ISI
-  $x  = !empty($_POST['x']) ? $_POST['x'] : '';
-  $desimal = !empty($_POST['desimal']) ? $_POST['desimal'] : '';
+  $x  = !empty($_POST['x']) ? $_POST['x'] : 1;
+  $desimal = !empty($_POST['desimal']) ? $_POST['desimal'] : 1;
 
   // Arrays Dari DataX
   $datax = array();
-  $datax[0] = !empty($_POST['x0']) ? $_POST['x0'] : '';
-  $datax[1] = !empty($_POST['x1']) ? $_POST['x1'] : '';
-  $datax[2] = !empty($_POST['x2']) ? $_POST['x2'] : '';
-  $datax[3] = !empty($_POST['x3']) ? $_POST['x3'] : '';
+  $datax[0] = !empty($_POST['x0']) ? $_POST['x0'] : 1;
+  $datax[1] = !empty($_POST['x1']) ? $_POST['x1'] : 2;
+  $datax[2] = !empty($_POST['x2']) ? $_POST['x2'] : 3;
+  $datax[3] = !empty($_POST['x3']) ? $_POST['x3'] : 4;
 
   // Arrays Dari DataF(X)
   $dataf = array();
-  $dataf[0] = !empty($_POST['f0']) ? $_POST['f0'] : '';
-  $dataf[1] = !empty($_POST['f1']) ? $_POST['f1'] : '';
-  $dataf[2] = !empty($_POST['f2']) ? $_POST['f2'] : '';
-  $dataf[3] = !empty($_POST['f3']) ? $_POST['f3'] : '';
+  $dataf[0] = !empty($_POST['f0']) ? $_POST['f0'] : 1;
+  $dataf[1] = !empty($_POST['f1']) ? $_POST['f1'] : 2;
+  $dataf[2] = !empty($_POST['f2']) ? $_POST['f2'] : 3;
+  $dataf[3] = !empty($_POST['f3']) ? $_POST['f3'] : 4;
 
   //Arrays ST-1
-  $st1[0] = number_format((($dataf[1] - $dataf[0])/($datax[1]-$datax[0])), $desimal);
+  $st1[0] = number_format(($dataf[1] - $dataf[0])/($datax[1]-$datax[0]), $desimal);
   $st1[1] = number_format(($dataf[2] - $dataf[1])/($datax[2]-$datax[1]), $desimal);
   $st1[2] = number_format(($dataf[3] - $dataf[2])/($datax[3]-$datax[2]), $desimal);
 
@@ -57,17 +57,17 @@
     <table border="1" cellpadding="5" >
       <tr>
         <td>X</td>
-        <td><input type="number" name="x0" value='0'></td>
-        <td><input type="number" name="x1" value=0></td>
-        <td><input type="number" name="x2" value=0></td>
-        <td><input type="number" name="x3" value=0></td>
+        <td><input type="text" name="x0" value=0></td>
+        <td><input type="text" name="x1" value=0></td>
+        <td><input type="text" name="x2" value=0></td>
+        <td><input type="text" name="x3" value=0></td>
       </tr>
       <tr>
         <td>F(X)</td>
-        <td><input type="number" name="f0" value=0></td>
-        <td><input type="number" name="f1" value=0></td>
-        <td><input type="number" name="f2" value=0></td>
-        <td><input type="number" name="f3" value=0></td>
+        <td><input type="text" name="f0" value=0></td>
+        <td><input type="text" name="f1" value=0></td>
+        <td><input type="text" name="f2" value=0></td>
+        <td><input type="text" name="f3" value=0></td>
       </tr>
     </table>
     <input type="submit" value="Hitung" style="margin-top: 20px; margin-bottom: 20px;">
