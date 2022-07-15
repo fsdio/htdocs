@@ -1,24 +1,25 @@
 <?php 
 
-  $x = $_POST["x"];
-  $desimal = $_POST["desimal"];
+  // SAAT DI ISI
+  $x  = !empty($_POST['x']) ? $_POST['x'] : '';
+  $desimal = !empty($_POST['desimal']) ? $_POST['desimal'] : '';
 
   // Arrays Dari DataX
   $datax = array();
-  $datax[0] = $_POST["x0"];
-  $datax[1] = $_POST["x1"];
-  $datax[2] = $_POST["x2"];
-  $datax[3] = $_POST["x3"];
+  $datax[0] = !empty($_POST['x0']) ? $_POST['x0'] : '';
+  $datax[1] = !empty($_POST['x1']) ? $_POST['x1'] : '';
+  $datax[2] = !empty($_POST['x2']) ? $_POST['x2'] : '';
+  $datax[3] = !empty($_POST['x3']) ? $_POST['x3'] : '';
 
   // Arrays Dari DataF(X)
   $dataf = array();
-  $dataf[0] = $_POST["f0"];
-  $dataf[1] = $_POST["f1"];
-  $dataf[2] = $_POST["f2"];
-  $dataf[3] = $_POST["f3"];
+  $dataf[0] = !empty($_POST['f0']) ? $_POST['f0'] : '';
+  $dataf[1] = !empty($_POST['f1']) ? $_POST['f1'] : '';
+  $dataf[2] = !empty($_POST['f2']) ? $_POST['f2'] : '';
+  $dataf[3] = !empty($_POST['f3']) ? $_POST['f3'] : '';
 
   //Arrays ST-1
-  $st1[0] = number_format(($dataf[1] - $dataf[0])/($datax[1]-$datax[0]), $desimal);
+  $st1[0] = number_format((($dataf[1] - $dataf[0])/($datax[1]-$datax[0])), $desimal);
   $st1[1] = number_format(($dataf[2] - $dataf[1])/($datax[2]-$datax[1]), $desimal);
   $st1[2] = number_format(($dataf[3] - $dataf[2])/($datax[3]-$datax[2]), $desimal);
 
@@ -51,12 +52,12 @@
 <body>
   <h1>Numerik Interpolasi Newton</h1>
   <form action="index.php" method="post">
-    <p>Tentukan prakiraan nilai f pada titik x = <input type="number" name="x" value="8"> dengan menggunakan metode interpolasi newton dengan ketelitian hingga <input type="number" name="desimal" value="2" /></label> desimal, jika diketahui :</p>
+    <p>Tentukan prakiraan nilai f pada titik x = <input type="tel" name="x" value=0> dengan menggunakan metode interpolasi newton dengan ketelitian hingga <input type="tel" name="desimal" value=0 /></label> desimal, jika diketahui :</p>
 
     <table border="1" cellpadding="5" >
       <tr>
         <td>X</td>
-        <td><input type="number" name="x0" value=0></td>
+        <td><input type="number" name="x0" value='0'></td>
         <td><input type="number" name="x1" value=0></td>
         <td><input type="number" name="x2" value=0></td>
         <td><input type="number" name="x3" value=0></td>
@@ -69,7 +70,7 @@
         <td><input type="number" name="f3" value=0></td>
       </tr>
     </table>
-    <input type="submit" value="Hitung">
+    <input type="submit" value="Hitung" style="margin-top: 20px; margin-bottom: 20px;">
   </form>
 
   <table border="1" cellpadding="5" >
