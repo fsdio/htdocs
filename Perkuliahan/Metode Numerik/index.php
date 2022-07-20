@@ -6,17 +6,17 @@
 
   // Arrays Dari DataX
   $datax = array();
-  $datax[0] = !empty($_POST['x0']) ? $_POST['x0'] : 1;
-  $datax[1] = !empty($_POST['x1']) ? $_POST['x1'] : 2;
-  $datax[2] = !empty($_POST['x2']) ? $_POST['x2'] : 3;
-  $datax[3] = !empty($_POST['x3']) ? $_POST['x3'] : 4;
+  $datax[0] = !empty($_POST['x0']) ? $_POST['x0'] : 0;
+  $datax[1] = !empty($_POST['x1']) ? $_POST['x1'] : 0;
+  $datax[2] = !empty($_POST['x2']) ? $_POST['x2'] : 0;
+  $datax[3] = !empty($_POST['x3']) ? $_POST['x3'] : 0;
 
   // Arrays Dari DataF(X)
   $dataf = array();
-  $dataf[0] = !empty($_POST['f0']) ? $_POST['f0'] : 1;
-  $dataf[1] = !empty($_POST['f1']) ? $_POST['f1'] : 2;
-  $dataf[2] = !empty($_POST['f2']) ? $_POST['f2'] : 3;
-  $dataf[3] = !empty($_POST['f3']) ? $_POST['f3'] : 4;
+  $dataf[0] = !empty($_POST['f0']) ? $_POST['f0'] : 0;
+  $dataf[1] = !empty($_POST['f1']) ? $_POST['f1'] : 0;
+  $dataf[2] = !empty($_POST['f2']) ? $_POST['f2'] : 0;
+  $dataf[3] = !empty($_POST['f3']) ? $_POST['f3'] : 0;
 
   //Arrays ST-1
   $st1[0] = number_format(($dataf[1] - $dataf[0])/($datax[1]-$datax[0]), $desimal);
@@ -54,6 +54,7 @@
   <form action="index.php" method="post">
     <p>Tentukan prakiraan nilai f pada titik x = <input type="tel" name="x" value=0> dengan menggunakan metode interpolasi newton dengan ketelitian hingga <input type="tel" name="desimal" value=0 /></label> desimal, jika diketahui :</p>
 
+
     <table border="1" cellpadding="5" >
       <tr>
         <td>X</td>
@@ -73,6 +74,213 @@
     <input type="submit" value="Hitung" style="margin-top: 20px; margin-bottom: 20px;">
   </form>
 
+  <!-- STEP 1 -->
+  <h3>Solve 1</h3>
+  <table border="1" cellpadding="5" >
+    <tr>
+      <th>Iterasi</th><th>Xi</th><th>F(Xi)</th>
+      <th>ST-1</th><th>ST-2</th><th>ST-3</th>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td><?php echo number_format($datax[0], $desimal) ?></td>
+      <td><?php echo number_format($dataf[0], $desimal) ?></td>
+      <td><?php echo $st1[0]?></td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td><?php echo number_format($datax[1], $desimal) ?></td>
+      <td><?php echo number_format($dataf[1], $desimal) ?></td>
+      <td>0</td>
+      <td>0</td>
+      <td style="background-color: #000000"></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><?php echo number_format($datax[2], $desimal) ?></td>
+      <td><?php echo number_format($dataf[2], $desimal) ?></td>
+      <td>0</td>
+      <td style="background-color: #000000"></td>
+      <td style="background-color: #000000"></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><?php echo number_format($datax[3], $desimal) ?></td>
+      <td><?php echo number_format($dataf[3], $desimal) ?></td>
+      <td style="background-color: #000000"></td>
+      <td style="background-color: #000000"></td>
+      <td style="background-color: #000000"></td>
+    </tr>
+  </table>
+
+  <!-- STEP 2 -->
+  <h3>Solve 2</h3>
+  <table border="1" cellpadding="5" >
+    <tr>
+      <th>Iterasi</th><th>Xi</th><th>F(Xi)</th>
+      <th>ST-1</th><th>ST-2</th><th>ST-3</th>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td><?php echo number_format($datax[0], $desimal) ?></td>
+      <td><?php echo number_format($dataf[0], $desimal) ?></td>
+      <td><?php echo $st1[0]?></td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td><?php echo number_format($datax[1], $desimal) ?></td>
+      <td><?php echo number_format($dataf[1], $desimal) ?></td>
+      <td><?php echo $st1[1]?></td>
+      <td>0</td>
+      <td style="background-color: #000000"></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><?php echo number_format($datax[2], $desimal) ?></td>
+      <td><?php echo number_format($dataf[2], $desimal) ?></td>
+      <td>0</td>
+      <td style="background-color: #000000"></td>
+      <td style="background-color: #000000"></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><?php echo number_format($datax[3], $desimal) ?></td>
+      <td><?php echo number_format($dataf[3], $desimal) ?></td>
+      <td style="background-color: #000000"></td>
+      <td style="background-color: #000000"></td>
+      <td style="background-color: #000000"></td>
+    </tr>
+  </table>
+
+  <!-- STEP 3 -->
+  <h3>Solve 3 </h3>
+  <table border="1" cellpadding="5" >
+    <tr>
+      <th>Iterasi</th><th>Xi</th><th>F(Xi)</th>
+      <th>ST-1</th><th>ST-2</th><th>ST-3</th>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td><?php echo number_format($datax[0], $desimal) ?></td>
+      <td><?php echo number_format($dataf[0], $desimal) ?></td>
+      <td><?php echo $st1[0]?></td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td><?php echo number_format($datax[1], $desimal) ?></td>
+      <td><?php echo number_format($dataf[1], $desimal) ?></td>
+      <td><?php echo $st1[1]?></td>
+      <td>0</td>
+      <td style="background-color: #000000"></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><?php echo number_format($datax[2], $desimal) ?></td>
+      <td><?php echo number_format($dataf[2], $desimal) ?></td>
+      <td><?php echo $st1[2]?></td>
+      <td style="background-color: #000000"></td>
+      <td style="background-color: #000000"></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><?php echo number_format($datax[3], $desimal) ?></td>
+      <td><?php echo number_format($dataf[3], $desimal) ?></td>
+      <td style="background-color: #000000"></td>
+      <td style="background-color: #000000"></td>
+      <td style="background-color: #000000"></td>
+    </tr>
+  </table>
+
+  <!-- STEP  4-->
+  <h3>Solve 4</h3>
+  <table border="1" cellpadding="5" >
+    <tr>
+      <th>Iterasi</th><th>Xi</th><th>F(Xi)</th>
+      <th>ST-1</th><th>ST-2</th><th>ST-3</th>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td><?php echo number_format($datax[0], $desimal) ?></td>
+      <td><?php echo number_format($dataf[0], $desimal) ?></td>
+      <td><?php echo $st1[0]?></td>
+      <td><?php echo $st2[0]?></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td><?php echo number_format($datax[1], $desimal) ?></td>
+      <td><?php echo number_format($dataf[1], $desimal) ?></td>
+      <td><?php echo $st1[1]?></td>
+      <td>0</td>
+      <td style="background-color: #000000"></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><?php echo number_format($datax[2], $desimal) ?></td>
+      <td><?php echo number_format($dataf[2], $desimal) ?></td>
+      <td><?php echo $st1[2]?></td>
+      <td style="background-color: #000000"></td>
+      <td style="background-color: #000000"></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><?php echo number_format($datax[3], $desimal) ?></td>
+      <td><?php echo number_format($dataf[3], $desimal) ?></td>
+      <td style="background-color: #000000"></td>
+      <td style="background-color: #000000"></td>
+      <td style="background-color: #000000"></td>
+    </tr>
+  </table>
+
+  <!-- STEP  5-->
+  <h3>Solve 5</h3>
+  <table border="1" cellpadding="5" >
+    <tr>
+      <th>Iterasi</th><th>Xi</th><th>F(Xi)</th>
+      <th>ST-1</th><th>ST-2</th><th>ST-3</th>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td><?php echo number_format($datax[0], $desimal) ?></td>
+      <td><?php echo number_format($dataf[0], $desimal) ?></td>
+      <td><?php echo $st1[0]?></td>
+      <td><?php echo $st2[0]?></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td><?php echo number_format($datax[1], $desimal) ?></td>
+      <td><?php echo number_format($dataf[1], $desimal) ?></td>
+      <td><?php echo $st1[1]?></td>
+      <td><?php echo $st2[1]?></td>
+      <td style="background-color: #000000"></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><?php echo number_format($datax[2], $desimal) ?></td>
+      <td><?php echo number_format($dataf[2], $desimal) ?></td>
+      <td><?php echo $st1[2]?></td>
+      <td style="background-color: #000000"></td>
+      <td style="background-color: #000000"></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><?php echo number_format($datax[3], $desimal) ?></td>
+      <td><?php echo number_format($dataf[3], $desimal) ?></td>
+      <td style="background-color: #000000"></td>
+      <td style="background-color: #000000"></td>
+      <td style="background-color: #000000"></td>
+    </tr>
+  </table>
+
+  <!-- STEP  6-->
+  <h3>Solve 6</h3>
   <table border="1" cellpadding="5" >
     <tr>
       <th>Iterasi</th><th>Xi</th><th>F(Xi)</th>
@@ -111,6 +319,8 @@
       <td style="background-color: #000000"></td>
     </tr>
   </table>
+
+  
   <h2>Hasilnya Adalah [ <?php echo $HASIL?> ]</h2>
 </body>
 </html>
