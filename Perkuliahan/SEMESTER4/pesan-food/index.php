@@ -13,10 +13,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         
         <div>
             
-            <header>
-                    <h1>PESAN FOOD</h1>
-                    <p>Pesan sekarang dan rasakan manfaatnya</p>
-            </header>
+            <?php require_once './view/header.php';?>
             <?php require_once './view/nav.php';?>
             
             <div style="display: flex">
@@ -27,5 +24,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             <?php require_once './view/footer.php';?>
 
         </div>
+
+    <script src="./js/app.js"></script>
     </body>
 </html>
