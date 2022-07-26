@@ -1,0 +1,44 @@
+<?php session_start(); ?>
+    <!-- Header Buka -->
+    <?php require_once ('header.php');?>
+    <!-- Header Tutup -->
+<h1>
+TUGAS KOMPUTASI NUMERIK 2</h1>
+<form action="elgajo.php" method="GET">
+      Jumlah Persamaan yang digunakan : <br>
+      <input type="text" name="jumlah_persamaan"><br>
+      <input type="submit" value="Submit">
+      <hr>
+</form>
+<?php
+if(isset($_GET['jumlah_persamaan'])){
+      if( !empty($_GET['jumlah_persamaan'])){
+            $jumlah_persamaan= $_GET['jumlah_persamaan'];
+           
+            buatForm($jumlah_persamaan);
+           
+            $_SESSION['jumlah_persamaan']= $jumlah_persamaan;
+            }else{
+            echo 'Yang kosong harus diisi';
+      }
+}
+
+function buatForm($jumlah_persamaan){
+      echo '<form action="kunci.php" method="GET">';
+            for($i=0; $i<$jumlah_persamaan;$i++){
+                  echo 'Persamaan '.$i.': ';
+                  for($j=0; $j<$jumlah_persamaan+1;$j++){
+                        if($j<$jumlah_persamaan){
+                              echo '<input type="text" name="var'.$i.$j.'" size="5">X <sub>'.$j.'</sub>';
+                        }else{
+                              echo ' = <input type="text" name="var'.$i.$j.'" size="5">';
+                        }
+                  }
+                  echo '<br>';
+            }
+      echo '<br><input type="submit" value="Submit"><hr>
+</form>
+';
+}
+
+?>
