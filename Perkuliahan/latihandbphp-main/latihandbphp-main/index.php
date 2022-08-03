@@ -1,3 +1,4 @@
+<?php $coba = "HELLO COBA"; ?>
 <html>
     <body>
          <h2> Insert Into DB NIM and NAME</h2>
